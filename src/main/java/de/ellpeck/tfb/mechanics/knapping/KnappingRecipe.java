@@ -23,6 +23,17 @@ public class KnappingRecipe implements IContent {
     }
 
     public boolean matches(boolean[][] pattern) {
-        return Arrays.deepEquals(this.pattern, pattern);
+        // normal matching
+        if (Arrays.deepEquals(this.pattern, pattern))
+            return true;
+
+        // mirrored matching
+        for (var y = 0; y < 5; y++) {
+            for (var x = 0; x < 5; x++) {
+                if (this.pattern[4 - x][y] != pattern[x][y])
+                    return false;
+            }
+        }
+        return true;
     }
 }
