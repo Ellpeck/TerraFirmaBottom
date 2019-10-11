@@ -4,7 +4,7 @@
     },
     "tex.": {
         "items.": {
-            "knife_blade": "/tex/items/knife_blade.png"
+            "stone_knife_blade": "/tex/items/stone_knife_blade.png"
         },
         "knapping": "/tex/knapping.png"
     }

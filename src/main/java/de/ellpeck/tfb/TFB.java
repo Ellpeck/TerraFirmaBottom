@@ -5,6 +5,7 @@ import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
+import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.mechanics.knapping.Knapping;
 
 import java.util.logging.Logger;

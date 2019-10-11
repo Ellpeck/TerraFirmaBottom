@@ -14,7 +14,7 @@ public final class ContentStripper {
         clearRegistry(Registries.CONSTRUCTION_TABLE_RECIPES);
         clearRegistry(Registries.SMITHING_RECIPES);
         clearRegistry(Registries.MORTAR_RECIPES);
-        clearRegistry(Registries.COMPENDIUM_CATEGORY_REGISTRY);
+        Registries.STRUCTURE_REGISTRY.unregister(new ResourceName("rockbottom/start_hut"));
     }
 
     private static <U> void clearRegistry(IRegistry<ResourceName, U> registry) {

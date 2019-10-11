@@ -1,0 +1,18 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/stone_knife"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/stone_knife_blade"
+        },
+        {
+            "name": "stick",
+            "amount": 2
+        }
+    ],
+    "skill": 0.01
+}
