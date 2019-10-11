@@ -1,0 +1,12 @@
+{
+    "pattern": [
+        "X    ",
+        "XX   ",
+        "XX   ",
+        "XX   ",
+        "XX   "
+    ],
+    "output": {
+        "name": "tfb/knife_blade"
+    }
+}

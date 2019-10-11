@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public final class ContentStripper {
 
     public static void strip() {
-        TerraFirmaBottom.logger.info("Stripping game content...");
+        TFB.logger.info("Stripping game content...");
         clearRegistry(Registries.MANUAL_CONSTRUCTION_RECIPES);
         clearRegistry(Registries.CONSTRUCTION_TABLE_RECIPES);
         clearRegistry(Registries.SMITHING_RECIPES);

@@ -1,5 +1,11 @@
 {
     "loc.": {
         "us_english": "/loc/us_english.json"
+    },
+    "tex.": {
+        "items.": {
+            "knife_blade": "/tex/items/knife_blade.png"
+        },
+        "knapping": "/tex/knapping.png"
     }
 }

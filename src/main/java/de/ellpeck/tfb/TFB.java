@@ -5,15 +5,16 @@ import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
+import de.ellpeck.tfb.mechanics.knapping.Knapping;
 
 import java.util.logging.Logger;
 
-public class TerraFirmaBottom implements IMod {
+public class TFB implements IMod {
 
-    public static TerraFirmaBottom instance;
+    public static TFB instance;
     public static Logger logger;
 
-    public TerraFirmaBottom() {
+    public TFB() {
         instance = this;
     }
 
@@ -42,6 +43,11 @@ public class TerraFirmaBottom implements IMod {
     }
 
     @Override
+    public String getContentLocation() {
+        return this.getResourceLocation() + "/content";
+    }
+
+    @Override
     public String getDescription() {
         return "TerraFirmaCraft for Rock Bottom";
     }
@@ -52,12 +58,18 @@ public class TerraFirmaBottom implements IMod {
     }
 
     @Override
-    public void postInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
-        ContentStripper.strip();
+    public void preInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
+        logger.info("Starting TerraFirmaBottom");
     }
 
     @Override
-    public void preInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
-        logger.info("Starting TerraFirmaBottom");
+    public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
+        new Items();
+        Knapping.init();
+    }
+
+    @Override
+    public void postInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
+        ContentStripper.strip();
     }
 }
