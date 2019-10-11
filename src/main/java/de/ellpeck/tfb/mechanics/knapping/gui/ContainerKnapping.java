@@ -1,7 +1,6 @@
 package de.ellpeck.tfb.mechanics.knapping.gui;
 
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
-import de.ellpeck.rockbottom.api.gui.container.ContainerSlot;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.inventory.Inventory;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
@@ -23,7 +22,12 @@ public class ContainerKnapping extends ItemContainer {
             Arrays.fill(this.pattern[i], true);
 
         this.addPlayerInventory(player, 0, 90);
-        this.addSlot(new ContainerSlot(this.output, 0, 102, 32));
+        this.addSlot(new SlotKnapping(this.output, 0, 102, 32));
+    }
+
+    public void onItemTakeout() {
+        for (var i = 0; i < 5; i++)
+            Arrays.fill(this.pattern[i], false);
     }
 
     public void knap(int x, int y) {
