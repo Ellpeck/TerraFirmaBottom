@@ -15,7 +15,8 @@
                 "path": "/tex/items/stone_axe.png",
                 "data": "/tex/items/tool.json"
             },
-            "clay_vessel": "/tex/items/clay_vessel.png"
+            "clay_vessel": "/tex/items/clay_vessel.png",
+            "vessel": "/tex/items/vessel.png"
         },
         "tiles.": {
             "clay.": {
