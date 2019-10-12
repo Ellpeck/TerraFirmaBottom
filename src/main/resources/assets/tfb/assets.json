@@ -9,7 +9,12 @@
                 "path": "/tex/items/stone_knife.png",
                 "data": "/tex/items/tool.json"
             },
-            "straw": "/tex/items/straw.png"
+            "straw": "/tex/items/straw.png",
+            "stone_axe_head": "/tex/items/stone_axe_head.png",
+            "stone_axe": {
+                "path": "/tex/items/stone_axe.png",
+                "data": "/tex/items/tool.json"
+            }
         },
         "knapping": "/tex/knapping.png"
     }

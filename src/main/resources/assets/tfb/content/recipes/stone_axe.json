@@ -1,0 +1,18 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/stone_axe"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/stone_axe_head"
+        },
+        {
+            "name": "stick",
+            "amount": 2
+        }
+    ],
+    "skill": 0.01
+}

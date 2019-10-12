@@ -1,0 +1,12 @@
+{
+    "pattern": [
+        " X   ",
+        "XXXX ",
+        "XXXXX",
+        "XXXX ",
+        " X   "
+    ],
+    "output": {
+        "name": "tfb/stone_axe_head"
+    }
+}

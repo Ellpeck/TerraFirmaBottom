@@ -1,9 +1,11 @@
 {
     "knapping.": {
         "knife": "/knapping/knife.json",
-        "knife_2": "/knapping/knife_2.json"
+        "knife_2": "/knapping/knife_2.json",
+        "axe": "/knapping/axe.json"
     },
     "recipe.": {
-        "stone_knife": "/recipes/stone_knife.json"
+        "stone_knife": "/recipes/stone_knife.json",
+        "stone_axe": "/recipes/stone_axe.json"
     }
 }

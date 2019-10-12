@@ -3,7 +3,9 @@
         "item.": {
             "stone_knife_blade": "Stone Knife Blade",
             "stone_knife": "Stone Knife",
-            "straw": "Straw"
+            "straw": "Straw",
+            "stone_axe_head": "Stone Axe Head",
+            "stone_axe": "Stone Axe"
         }
     }
 }
