@@ -11,9 +11,11 @@ import java.util.UUID;
 public class PacketOpenKnapping implements IPacket {
 
     private UUID playerId;
+    private KnappingType type;
 
-    public PacketOpenKnapping(UUID playerId) {
+    public PacketOpenKnapping(UUID playerId, KnappingType type) {
         this.playerId = playerId;
+        this.type = type;
     }
 
     public PacketOpenKnapping() {
@@ -23,16 +25,18 @@ public class PacketOpenKnapping implements IPacket {
     public void toBuffer(ByteBuf buf) {
         buf.writeLong(this.playerId.getMostSignificantBits());
         buf.writeLong(this.playerId.getLeastSignificantBits());
+        buf.writeInt(this.type.ordinal());
     }
 
     @Override
     public void fromBuffer(ByteBuf buf) {
         this.playerId = new UUID(buf.readLong(), buf.readLong());
+        this.type = KnappingType.values()[buf.readInt()];
     }
 
     @Override
     public void handle(IGameInstance game, ChannelHandlerContext context) {
         var player = game.getWorld().getPlayer(this.playerId);
-        player.openContainer(new ContainerKnapping(player));
+        player.openContainer(new ContainerKnapping(player, this.type));
     }
 }

@@ -10,7 +10,8 @@ import java.util.Arrays;
 
 public class KnappingRecipe implements IContent {
 
-    public static final NameRegistry<KnappingRecipe> REGISTRY = new NameRegistry<>(TFB.createRes("knapping"), true).register();
+    public static final NameRegistry<KnappingRecipe> STONE_REGISTRY = new NameRegistry<>(TFB.createRes("stone_knapping"), true).register();
+    public static final NameRegistry<KnappingRecipe> CLAY_REGISTRY = new NameRegistry<>(TFB.createRes("clay_knapping"), true).register();
 
     public final ResourceName name;
     public final boolean[][] pattern;

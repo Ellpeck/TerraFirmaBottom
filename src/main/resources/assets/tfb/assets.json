@@ -14,7 +14,8 @@
             "stone_axe": {
                 "path": "/tex/items/stone_axe.png",
                 "data": "/tex/items/tool.json"
-            }
+            },
+            "clay_vessel": "/tex/items/clay_vessel.png"
         },
         "tiles.": {
             "clay.": {
@@ -22,6 +23,7 @@
                 "item": "/tex/items/clay.png"
             }
         },
-        "knapping": "/tex/knapping.png"
+        "knapping_stone": "/tex/knapping_stone.png",
+        "knapping_clay": "/tex/knapping_clay.png"
     }
 }

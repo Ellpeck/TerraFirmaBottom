@@ -14,6 +14,8 @@ public final class Items {
     public static final Item STONE_KNIFE = new ItemTool(TFB.createRes("stone_knife"), 1, 100, ToolProperties.KNIFE, 1).register();
     public static final Item STONE_AXE = new ItemTool(TFB.createRes("stone_axe"), 1, 100, ToolProperty.AXE, 1).register();
 
+    public static final Item CLAY_VESSEL = new ItemBasic(TFB.createRes("clay_vessel")).setMaxAmount(1).register();
+
     public static final Item STRAW = new ItemBasic(TFB.createRes("straw")).setMaxAmount(32).register();
 
 }

@@ -9,6 +9,7 @@ import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 public class KnappingLoader implements IContentLoader<KnappingRecipe> {
@@ -24,10 +25,12 @@ public class KnappingLoader implements IContentLoader<KnappingRecipe> {
     public void loadContent(IGameInstance game, ResourceName resourceName, String path, JsonElement element, String elementName, IMod loadingMod, ContentPack pack) throws Exception {
         if (this.disabled.contains(resourceName))
             return;
-        if (KnappingRecipe.REGISTRY.get(resourceName) != null)
+        var json = this.getRecipeObject(game, path + element.getAsString());
+
+        var type = KnappingType.valueOf(json.get("type").getAsString().toUpperCase(Locale.ROOT));
+        if (type.registry.get(resourceName) != null)
             return;
 
-        var json = this.getRecipeObject(game, path + element.getAsString());
         var output = this.readItemInstance(json.getAsJsonObject("output"));
 
         var pattern = new boolean[5][5];
@@ -39,7 +42,7 @@ public class KnappingLoader implements IContentLoader<KnappingRecipe> {
             }
         }
 
-        KnappingRecipe.REGISTRY.register(resourceName, new KnappingRecipe(resourceName, pattern, output));
+        type.registry.register(resourceName, new KnappingRecipe(resourceName, pattern, output));
     }
 
     @Override

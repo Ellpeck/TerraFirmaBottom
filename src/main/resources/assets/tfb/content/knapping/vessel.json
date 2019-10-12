@@ -1,0 +1,13 @@
+{
+    "pattern": [
+        " XXX ",
+        "XXXXX",
+        "XXXXX",
+        "XXXXX",
+        " XXX "
+    ],
+    "output": {
+        "name": "tfb/clay_vessel"
+    },
+    "type": "clay"
+}

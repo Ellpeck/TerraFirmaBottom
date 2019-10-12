@@ -6,7 +6,8 @@
             "straw": "Straw",
             "stone_axe_head": "Stone Axe Head",
             "stone_axe": "Stone Axe",
-            "clay": "Clay"
+            "clay": "Clay",
+            "clay_vessel": "Unfired Clay Vessel"
         }
     }
 }

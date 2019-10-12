@@ -5,18 +5,20 @@ import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.inventory.Inventory;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
-import de.ellpeck.tfb.mechanics.knapping.KnappingRecipe;
+import de.ellpeck.tfb.mechanics.knapping.KnappingType;
 
 import java.util.Arrays;
 
 public class ContainerKnapping extends ItemContainer {
 
+    public final KnappingType type;
     public final boolean[][] pattern = new boolean[5][5];
     private final Inventory output = new Inventory(1);
     private boolean firstKnap;
 
-    public ContainerKnapping(AbstractEntityPlayer player) {
+    public ContainerKnapping(AbstractEntityPlayer player, KnappingType type) {
         super(player);
+        this.type = type;
 
         for (var i = 0; i < 5; i++)
             Arrays.fill(this.pattern[i], true);
@@ -34,11 +36,11 @@ public class ContainerKnapping extends ItemContainer {
         this.pattern[x][y] = false;
 
         if (!this.firstKnap) {
-            this.player.getInv().remove(this.player.getSelectedSlot(), 1);
+            this.player.getInv().remove(this.player.getSelectedSlot(), this.type.consumedAmount);
             this.firstKnap = true;
         }
 
-        for (var recipe : KnappingRecipe.REGISTRY.values()) {
+        for (var recipe : this.type.registry.values()) {
             if (recipe.matches(this.pattern)) {
                 this.output.set(0, recipe.output.copy());
                 return;

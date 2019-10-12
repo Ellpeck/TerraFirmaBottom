@@ -8,5 +8,6 @@
     ],
     "output": {
         "name": "tfb/stone_axe_head"
-    }
+    },
+    "type": "stone"
 }

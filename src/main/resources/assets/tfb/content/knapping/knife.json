@@ -8,5 +8,6 @@
     ],
     "output": {
         "name": "tfb/stone_knife_blade"
-    }
+    },
+    "type": "stone"
 }
