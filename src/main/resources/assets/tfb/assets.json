@@ -21,7 +21,8 @@
             "clay.": {
                 "*": "/tex/tiles/clay.png",
                 "item": "/tex/items/clay.png"
-            }
+            },
+            "stick": "/tex/tiles/stick.png"
         },
         "knapping_stone": "/tex/knapping_stone.png",
         "knapping_clay": "/tex/knapping_clay.png"

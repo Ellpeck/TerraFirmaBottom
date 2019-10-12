@@ -11,6 +11,7 @@ import de.ellpeck.tfb.mechanics.Misc;
 import de.ellpeck.tfb.mechanics.knapping.Knapping;
 import de.ellpeck.tfb.tiles.Tiles;
 import de.ellpeck.tfb.world.ClayGenerator;
+import de.ellpeck.tfb.world.StickGenerator;
 
 import java.util.logging.Logger;
 
@@ -76,6 +77,7 @@ public class TFB implements IMod {
         Misc.init();
 
         Registries.WORLD_GENERATORS.register(createRes("clay"), ClayGenerator.class);
+        Registries.WORLD_GENERATORS.register(createRes("sticks"), StickGenerator.class);
     }
 
     @Override
