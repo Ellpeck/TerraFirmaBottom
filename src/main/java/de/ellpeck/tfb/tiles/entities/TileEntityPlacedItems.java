@@ -144,7 +144,7 @@ public class TileEntityPlacedItems extends TileEntity {
             return;
 
         this.burnTime++;
-        if (this.burnTime >= 200) {
+        if (this.burnTime >= Constants.TIME_PER_DAY / 4) {
             this.burnTime = 0;
             this.isLit = false;
 
