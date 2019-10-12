@@ -22,7 +22,10 @@
             },
             "clay_vessel": "/tex/items/clay_vessel.png",
             "vessel": "/tex/items/vessel.png",
-            "firestarter": "/tex/items/firestarter.png"
+            "firestarter": "/tex/items/firestarter.png",
+            "zinc_ore": "/tex/items/zinc_ore.png",
+            "bismuth_ore": "/tex/items/bismuth_ore.png",
+            "copper_ore": "/tex/items/copper_ore.png"
         },
         "tiles.": {
             "clay.": {
@@ -33,7 +36,13 @@
             "placed_items.": {
                 "*": "/tex/tiles/placed_items.png",
                 "lit": "/tex/tiles/placed_items_lit.png"
-            }
+            },
+            "zinc_ore": "/tex/tiles/zinc_ore.png",
+            "bismuth_ore": "/tex/tiles/bismuth_ore.png",
+            "copper_ore": "/tex/tiles/copper_ore.png",
+            "zinc_ore_small": "/tex/tiles/zinc_ore_small.png",
+            "bismuth_ore_small": "/tex/tiles/bismuth_ore_small.png",
+            "copper_ore_small": "/tex/tiles/copper_ore_small.png"
         },
         "knapping_stone": "/tex/knapping_stone.png",
         "knapping_clay": "/tex/knapping_clay.png"

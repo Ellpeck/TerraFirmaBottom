@@ -11,7 +11,14 @@
             "vessel": "Clay Vessel",
             "firestarter": "Firestarter",
             "stone_shovel_head": "Stone Shovel Head",
-            "stone_shovel": "Stone Shovel"
-        }
+            "stone_shovel": "Stone Shovel",
+            "zinc_ore": "Zinc Ore",
+            "bismuth_ore": "Bismuth Ore",
+            "copper_ore": "Copper Ore"
+        },
+        "rich": "Rich",
+        "regular": "Regular",
+        "poor": "Poor",
+        "small": "Small"
     }
 }

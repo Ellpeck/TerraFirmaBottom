@@ -14,6 +14,7 @@ import de.ellpeck.tfb.recipes.PitKilnLoader;
 import de.ellpeck.tfb.tiles.Tiles;
 import de.ellpeck.tfb.world.ClayGenerator;
 import de.ellpeck.tfb.world.StickGenerator;
+import de.ellpeck.tfb.world.ores.OreGenerators;
 
 import java.util.logging.Logger;
 
@@ -84,6 +85,7 @@ public class TFB implements IMod {
 
         Registries.WORLD_GENERATORS.register(createRes("clay"), ClayGenerator.class);
         Registries.WORLD_GENERATORS.register(createRes("sticks"), StickGenerator.class);
+        OreGenerators.init();
     }
 
     @Override
