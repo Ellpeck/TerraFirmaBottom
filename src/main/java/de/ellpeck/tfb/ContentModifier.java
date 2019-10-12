@@ -1,24 +1,25 @@
 package de.ellpeck.tfb;
 
 import de.ellpeck.rockbottom.api.Registries;
-import de.ellpeck.rockbottom.api.RockBottomAPI;
-import de.ellpeck.rockbottom.api.event.EventResult;
-import de.ellpeck.rockbottom.api.event.impl.RecipeLearnEvent;
 import de.ellpeck.rockbottom.api.util.reg.IRegistry;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
+import de.ellpeck.rockbottom.api.world.gen.WorldGenOre;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public final class ContentModifier {
 
     public static void init() {
         TFB.logger.info("Modifying game content...");
 
-        clearRegistry(Registries.MANUAL_CONSTRUCTION_RECIPES);
-        clearRegistry(Registries.CONSTRUCTION_TABLE_RECIPES);
-        clearRegistry(Registries.SMITHING_RECIPES);
-        clearRegistry(Registries.MORTAR_RECIPES);
+        modifyRegistry(Registries.MANUAL_CONSTRUCTION_RECIPES);
+        modifyRegistry(Registries.CONSTRUCTION_TABLE_RECIPES);
+        modifyRegistry(Registries.SMITHING_RECIPES);
+        modifyRegistry(Registries.MORTAR_RECIPES);
+        modifyRegistry(Registries.WORLD_GENERATORS, WorldGenOre.class::isAssignableFrom);
+
         Registries.STRUCTURE_REGISTRY.unregister(new ResourceName("rockbottom/start_hut"));
 
         for (var tile : Registries.TILE_REGISTRY.values()) {
@@ -34,10 +35,15 @@ public final class ContentModifier {
         }
     }
 
-    private static <U> void clearRegistry(IRegistry<ResourceName, U> registry) {
+    private static <U> void modifyRegistry(IRegistry<ResourceName, U> registry) {
+        modifyRegistry(registry, e -> true);
+    }
+
+    private static <U> void modifyRegistry(IRegistry<ResourceName, U> registry, Function<U, Boolean> predicate) {
         var content = new ArrayList<ResourceName>();
-        for (var name : registry.keySet()) {
-            if ("rockbottom".equals(name.getDomain()))
+        for (var entry : registry.entrySet()) {
+            var name = entry.getKey();
+            if ("rockbottom".equals(name.getDomain()) && predicate.apply(entry.getValue()))
                 content.add(name);
         }
         content.forEach(registry::unregister);
