@@ -9,7 +9,9 @@
             "clay": "Clay",
             "clay_vessel": "Unfired Clay Vessel",
             "vessel": "Clay Vessel",
-            "firestarter": "Firestarter"
+            "firestarter": "Firestarter",
+            "stone_shovel_head": "Stone Shovel Head",
+            "stone_shovel": "Stone Shovel"
         }
     }
 }

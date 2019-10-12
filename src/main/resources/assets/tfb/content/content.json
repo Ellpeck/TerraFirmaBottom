@@ -3,7 +3,8 @@
         "knife": "/knapping/knife.json",
         "knife_2": "/knapping/knife_2.json",
         "axe": "/knapping/axe.json",
-        "vessel": "/knapping/vessel.json"
+        "vessel": "/knapping/vessel.json",
+        "shovel": "/knapping/shovel.json"
     },
     "pit_kiln.": {
         "vessel": "/pit_kiln/vessel.json"
@@ -11,6 +12,7 @@
     "recipe.": {
         "stone_knife": "/recipes/stone_knife.json",
         "stone_axe": "/recipes/stone_axe.json",
-        "firestarter": "/recipes/firestarter.json"
+        "firestarter": "/recipes/firestarter.json",
+        "stone_shovel": "/recipes/stone_shovel.json"
     }
 }

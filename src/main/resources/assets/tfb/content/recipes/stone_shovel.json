@@ -1,0 +1,18 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/stone_shovel"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/stone_shovel_head"
+        },
+        {
+            "name": "stick",
+            "amount": 2
+        }
+    ],
+    "skill": 0.01
+}

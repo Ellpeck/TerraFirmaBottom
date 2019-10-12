@@ -1,0 +1,13 @@
+{
+    "pattern": [
+        " XXX ",
+        " XXX ",
+        " XXX ",
+        " XXX ",
+        "  X  "
+    ],
+    "output": {
+        "name": "tfb/stone_shovel_head"
+    },
+    "type": "stone"
+}

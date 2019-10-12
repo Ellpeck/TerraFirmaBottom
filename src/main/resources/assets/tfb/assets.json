@@ -15,6 +15,11 @@
                 "path": "/tex/items/stone_axe.png",
                 "data": "/tex/items/tool.json"
             },
+            "stone_shovel_head": "/tex/items/stone_shovel_head.png",
+            "stone_shovel": {
+                "path": "/tex/items/stone_shovel.png",
+                "data": "/tex/items/tool.json"
+            },
             "clay_vessel": "/tex/items/clay_vessel.png",
             "vessel": "/tex/items/vessel.png",
             "firestarter": "/tex/items/firestarter.png"
