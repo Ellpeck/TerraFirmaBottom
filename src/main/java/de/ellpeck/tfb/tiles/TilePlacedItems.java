@@ -8,6 +8,7 @@ import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
+import de.ellpeck.rockbottom.api.util.Direction;
 import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
@@ -56,26 +57,53 @@ public class TilePlacedItems extends TileBasic {
     }
 
     @Override
-    public BoundBox getBoundBox(IWorld world, TileState state, int x, int y, TileLayer layer) {
-        return null;
+    public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
+        var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
+
+        var held = player.getSelectedItem();
+        if (held != null) {
+            if (!entity.addStrawOrWood(held))
+                return false;
+            if (!world.isClient())
+                player.getInv().remove(player.getSelectedSlot(), 1);
+            return true;
+        } else {
+            var instance = entity.removeStorage();
+            if (instance == null)
+                return false;
+            if (world.isClient())
+                return true;
+            AbstractEntityItem.spawn(world, instance, x + Util.RANDOM.nextFloat(), y + 0.5, 0, 0);
+            return true;
+        }
     }
 
     @Override
-    public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
+    public boolean canPlace(IWorld world, int x, int y, TileLayer layer, AbstractEntityPlayer player) {
+        return world.getState(x, y - 1).getTile().isFullTile();
+    }
+
+    @Override
+    public boolean canStay(IWorld world, int x, int y, TileLayer layer, int changedX, int changedY, TileLayer changedLayer) {
         var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
-        var instance = entity.remove();
-        if (instance == null)
-            return false;
-        if (world.isClient())
-            return true;
-        AbstractEntityItem.spawn(world, instance, x + Util.RANDOM.nextFloat(), y + 0.5, 0, 0);
-        return true;
+        if (entity.getPitKilnFillPercentage() > 0) {
+            return isInPit(world, x, y);
+        } else {
+            return world.getState(x, y - 1).getTile().isFullTile();
+        }
+    }
+
+    @Override
+    public BoundBox getBoundBox(IWorld world, TileState state, int x, int y, TileLayer layer) {
+        var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
+        var percentage = entity.getPitKilnFillPercentage();
+        return new BoundBox(0, 0, 1, percentage);
     }
 
     public static boolean place(IWorld world, int x, int y, ItemInstance instance) {
         var state = world.getState(x, y);
         if (state.getTile() != Tiles.PLACED_ITEMS) {
-            if (!Tiles.PLACED_ITEMS.canPlace(world, x, y, TileLayer.MAIN, null))
+            if (!state.getTile().canReplace(world, x, y, TileLayer.MAIN) || !Tiles.PLACED_ITEMS.canPlace(world, x, y, TileLayer.MAIN, null))
                 return false;
             world.setState(x, y, Tiles.PLACED_ITEMS.getDefState());
 
@@ -84,6 +112,17 @@ public class TilePlacedItems extends TileBasic {
         }
 
         var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
-        return entity.add(instance);
+        return entity.addStorage(instance);
+    }
+
+    public static boolean isInPit(IWorld world, int x, int y) {
+        for (var dir : Direction.ADJACENT) {
+            if (dir == Direction.UP)
+                continue;
+            var state = world.getState(x + dir.x, y + dir.y);
+            if (!state.getTile().isFullTile())
+                return false;
+        }
+        return true;
     }
 }

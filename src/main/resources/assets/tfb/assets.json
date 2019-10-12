@@ -23,7 +23,8 @@
                 "*": "/tex/tiles/clay.png",
                 "item": "/tex/items/clay.png"
             },
-            "stick": "/tex/tiles/stick.png"
+            "stick": "/tex/tiles/stick.png",
+            "placed_items": "/tex/tiles/placed_items.png"
         },
         "knapping_stone": "/tex/knapping_stone.png",
         "knapping_clay": "/tex/knapping_clay.png"

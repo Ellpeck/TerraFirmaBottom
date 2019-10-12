@@ -19,14 +19,19 @@ public class TilePlacedItemsRenderer extends DefaultTileRenderer<TilePlacedItems
     @Override
     public void render(IGameInstance game, IAssetManager manager, IRenderer g, IWorld world, TilePlacedItems tile, TileState state, int x, int y, TileLayer layer, float renderX, float renderY, float scale, int[] light) {
         var entity = world.getTileEntity(layer, x, y, TileEntityPlacedItems.class);
-        for (var instance : entity.items) {
+        var itemX = renderX;
+        for (var instance : entity.inventory) {
             if (instance == null)
                 continue;
             var item = instance.getItem();
             var renderer = item.getRenderer();
             if (renderer != null)
-                renderer.render(game, manager, g, item, instance, renderX, renderY + scale / 2, scale / 2, light[0]);
-            renderX += scale / 2;
+                renderer.render(game, manager, g, item, instance, itemX, renderY + scale / 2, scale / 2, light[0]);
+            itemX += scale / 2;
         }
+
+        var percentage = entity.getPitKilnFillPercentage();
+        var tex = manager.getTexture(this.texture);
+        tex.draw(renderX, renderY + (1 - percentage) * scale, renderX + scale, renderY + scale, 0, (1 - percentage) * tex.getRenderHeight(), tex.getRenderWidth(), tex.getRenderHeight());
     }
 }
