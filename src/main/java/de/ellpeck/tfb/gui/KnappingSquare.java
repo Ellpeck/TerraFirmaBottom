@@ -8,6 +8,7 @@ import de.ellpeck.rockbottom.api.gui.Gui;
 import de.ellpeck.rockbottom.api.gui.component.ComponentButton;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
+import de.ellpeck.tfb.gui.container.ContainerKnapping;
 import de.ellpeck.tfb.recipes.KnappingType;
 import de.ellpeck.tfb.packets.PacketKnap;
 

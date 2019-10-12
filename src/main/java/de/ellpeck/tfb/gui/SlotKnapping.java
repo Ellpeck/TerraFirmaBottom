@@ -5,6 +5,7 @@ import de.ellpeck.rockbottom.api.gui.GuiContainer;
 import de.ellpeck.rockbottom.api.gui.component.ComponentSlot;
 import de.ellpeck.rockbottom.api.gui.container.OutputSlot;
 import de.ellpeck.rockbottom.api.inventory.IInventory;
+import de.ellpeck.tfb.gui.container.ContainerKnapping;
 
 public class SlotKnapping extends OutputSlot {
     public SlotKnapping(IInventory inventory, int slot, int x, int y) {

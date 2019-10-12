@@ -2,7 +2,7 @@ package de.ellpeck.tfb.packets;
 
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.net.packet.IPacket;
-import de.ellpeck.tfb.gui.ContainerKnapping;
+import de.ellpeck.tfb.gui.container.ContainerKnapping;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 

@@ -9,8 +9,8 @@ import de.ellpeck.rockbottom.api.event.impl.*;
 import de.ellpeck.rockbottom.api.inventory.IInventory;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.world.IWorld;
-import de.ellpeck.tfb.gui.ContainerKnapping;
 import de.ellpeck.tfb.gui.GuiKnapping;
+import de.ellpeck.tfb.gui.container.ContainerKnapping;
 import de.ellpeck.tfb.items.IUpdatingItem;
 import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.items.ToolProperties;
@@ -76,8 +76,10 @@ public final class Events {
         });
     }
 
-    private static void updateInventory(IInventory inv, IWorld world) {
+    public static void updateInventory(IInventory inv, IWorld world) {
         for (var instance : inv) {
+            if (instance == null)
+                continue;
             var item = instance.getItem();
             if (item instanceof IUpdatingItem) {
                 ((IUpdatingItem) item).update(world, instance);
