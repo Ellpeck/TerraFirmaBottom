@@ -73,6 +73,6 @@ public class TFB implements IMod {
 
     @Override
     public void postInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
-        ContentStripper.strip();
+        ContentModifier.init();
     }
 }
