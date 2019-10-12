@@ -129,10 +129,12 @@ public class TilePlacedItems extends TileBasic {
         if (state.getTile() != Tiles.PLACED_ITEMS) {
             if (!state.getTile().canReplace(world, x, y, TileLayer.MAIN) || !Tiles.PLACED_ITEMS.canPlace(world, x, y, TileLayer.MAIN, null))
                 return false;
-            world.setState(x, y, Tiles.PLACED_ITEMS.getDefState());
 
-            if (world.isClient())
+            if (world.isClient()) {
                 return true;
+            } else {
+                world.setState(x, y, Tiles.PLACED_ITEMS.getDefState());
+            }
         }
 
         var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
