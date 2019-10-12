@@ -1,4 +1,4 @@
-package de.ellpeck.tfb.mechanics.knapping;
+package de.ellpeck.tfb.recipes;
 
 import com.google.gson.JsonElement;
 import de.ellpeck.rockbottom.api.IGameInstance;

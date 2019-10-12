@@ -7,8 +7,10 @@ import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.items.Items;
-import de.ellpeck.tfb.mechanics.Misc;
-import de.ellpeck.tfb.mechanics.knapping.Knapping;
+import de.ellpeck.tfb.packets.PacketKnap;
+import de.ellpeck.tfb.packets.PacketOpenKnapping;
+import de.ellpeck.tfb.recipes.KnappingLoader;
+import de.ellpeck.tfb.recipes.PitKilnLoader;
 import de.ellpeck.tfb.tiles.Tiles;
 import de.ellpeck.tfb.world.ClayGenerator;
 import de.ellpeck.tfb.world.StickGenerator;
@@ -72,9 +74,13 @@ public class TFB implements IMod {
     public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         new Items();
         new Tiles();
+        Events.init();
 
-        Knapping.init();
-        Misc.init();
+        new KnappingLoader().register();
+        new PitKilnLoader().register();
+
+        Registries.PACKET_REGISTRY.registerNextFree(PacketOpenKnapping.class);
+        Registries.PACKET_REGISTRY.registerNextFree(PacketKnap.class);
 
         Registries.WORLD_GENERATORS.register(createRes("clay"), ClayGenerator.class);
         Registries.WORLD_GENERATORS.register(createRes("sticks"), StickGenerator.class);

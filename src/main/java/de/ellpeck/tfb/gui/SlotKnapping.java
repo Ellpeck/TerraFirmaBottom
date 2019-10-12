@@ -1,4 +1,4 @@
-package de.ellpeck.tfb.mechanics.knapping.gui;
+package de.ellpeck.tfb.gui;
 
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.gui.GuiContainer;

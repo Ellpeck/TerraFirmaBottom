@@ -1,11 +1,11 @@
-package de.ellpeck.tfb.mechanics.knapping.gui;
+package de.ellpeck.tfb.gui;
 
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.gui.GuiContainer;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
-import de.ellpeck.tfb.mechanics.knapping.KnappingType;
+import de.ellpeck.tfb.recipes.KnappingType;
 
 public class GuiKnapping extends GuiContainer {
 

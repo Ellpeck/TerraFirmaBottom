@@ -16,7 +16,8 @@
                 "data": "/tex/items/tool.json"
             },
             "clay_vessel": "/tex/items/clay_vessel.png",
-            "vessel": "/tex/items/vessel.png"
+            "vessel": "/tex/items/vessel.png",
+            "firestarter": "/tex/items/firestarter.png"
         },
         "tiles.": {
             "clay.": {
@@ -24,7 +25,10 @@
                 "item": "/tex/items/clay.png"
             },
             "stick": "/tex/tiles/stick.png",
-            "placed_items": "/tex/tiles/placed_items.png"
+            "placed_items.": {
+                "*": "/tex/tiles/placed_items.png",
+                "lit": "/tex/tiles/placed_items_lit.png"
+            }
         },
         "knapping_stone": "/tex/knapping_stone.png",
         "knapping_clay": "/tex/knapping_clay.png"

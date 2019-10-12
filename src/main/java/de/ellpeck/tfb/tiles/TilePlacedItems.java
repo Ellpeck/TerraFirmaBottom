@@ -1,8 +1,10 @@
 package de.ellpeck.tfb.tiles;
 
+import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.entity.AbstractEntityItem;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.particle.IParticleManager;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
@@ -62,6 +64,9 @@ public class TilePlacedItems extends TileBasic {
 
         var held = player.getSelectedItem();
         if (held != null) {
+            if (entity.light(player, held))
+                return true;
+
             if (!entity.addStrawOrWood(held))
                 return false;
             if (!world.isClient())
@@ -75,6 +80,19 @@ public class TilePlacedItems extends TileBasic {
                 return true;
             AbstractEntityItem.spawn(world, instance, x + Util.RANDOM.nextFloat(), y + 0.5, 0, 0);
             return true;
+        }
+    }
+
+    @Override
+    public void updateRandomlyInPlayerView(IWorld world, int x, int y, TileLayer layer, TileState state, IParticleManager manager) {
+        var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
+        if (entity.isLit) {
+            for (var i = Util.RANDOM.nextInt(5); i >= 0; i--) {
+                var particleX = x + Util.RANDOM.nextFloat();
+                var particleY = y + Util.RANDOM.nextFloat();
+                var scale = (1 + Util.RANDOM.nextFloat() * 2) * 0.15F;
+                RockBottomAPI.getGame().getParticleManager().addSmokeParticle(world, particleX, particleY, 0, 0, scale);
+            }
         }
     }
 

@@ -13,10 +13,10 @@ public final class Items {
 
     public static final Item STONE_KNIFE = new ItemTool(TFB.createRes("stone_knife"), 1, 100, ToolProperties.KNIFE, 1).register();
     public static final Item STONE_AXE = new ItemTool(TFB.createRes("stone_axe"), 1, 100, ToolProperty.AXE, 1).register();
+    public static final Item FIRESTARTER = new ItemTool(TFB.createRes("firestarter"), 1, 20, ToolProperties.FIRESTARTER, 1).setMaxAmount(1).register();
 
     public static final Item CLAY_VESSEL = new ItemPlaceable(TFB.createRes("clay_vessel")).setMaxAmount(1).register();
     public static final Item VESSEL = new ItemPlaceable(TFB.createRes("vessel")).setMaxAmount(1).register();
 
     public static final Item STRAW = new ItemBasic(TFB.createRes("straw")).setMaxAmount(32).register();
-
 }

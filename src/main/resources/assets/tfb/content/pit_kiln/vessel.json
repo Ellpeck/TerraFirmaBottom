@@ -1,0 +1,8 @@
+{
+    "input": {
+        "name": "tfb/clay_vessel"
+    },
+    "output": {
+        "name": "tfb/vessel"
+    }
+}

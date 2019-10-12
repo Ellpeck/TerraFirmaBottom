@@ -1,42 +1,47 @@
-package de.ellpeck.tfb.mechanics.knapping;
+package de.ellpeck.tfb.packets;
 
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.net.packet.IPacket;
-import de.ellpeck.tfb.mechanics.knapping.gui.ContainerKnapping;
+import de.ellpeck.tfb.gui.ContainerKnapping;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.UUID;
 
-public class PacketOpenKnapping implements IPacket {
+public class PacketKnap implements IPacket {
 
     private UUID playerId;
-    private KnappingType type;
+    private int x;
+    private int y;
 
-    public PacketOpenKnapping(UUID playerId, KnappingType type) {
+    public PacketKnap(UUID playerId, int x, int y) {
         this.playerId = playerId;
-        this.type = type;
+        this.x = x;
+        this.y = y;
     }
 
-    public PacketOpenKnapping() {
+    public PacketKnap() {
     }
 
     @Override
     public void toBuffer(ByteBuf buf) {
         buf.writeLong(this.playerId.getMostSignificantBits());
         buf.writeLong(this.playerId.getLeastSignificantBits());
-        buf.writeInt(this.type.ordinal());
+        buf.writeInt(this.x);
+        buf.writeInt(this.y);
     }
 
     @Override
     public void fromBuffer(ByteBuf buf) {
         this.playerId = new UUID(buf.readLong(), buf.readLong());
-        this.type = KnappingType.values()[buf.readInt()];
+        this.x = buf.readInt();
+        this.y = buf.readInt();
     }
 
     @Override
     public void handle(IGameInstance game, ChannelHandlerContext context) {
         var player = game.getWorld().getPlayer(this.playerId);
-        player.openContainer(new ContainerKnapping(player, this.type));
+        var container = (ContainerKnapping) player.getContainer();
+        container.knap(this.x, this.y);
     }
 }

@@ -5,8 +5,12 @@
         "axe": "/knapping/axe.json",
         "vessel": "/knapping/vessel.json"
     },
+    "pit_kiln.": {
+        "vessel": "/pit_kiln/vessel.json"
+    },
     "recipe.": {
         "stone_knife": "/recipes/stone_knife.json",
-        "stone_axe": "/recipes/stone_axe.json"
+        "stone_axe": "/recipes/stone_axe.json",
+        "firestarter": "/recipes/firestarter.json"
     }
 }

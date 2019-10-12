@@ -1,0 +1,15 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/firestarter"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "stick",
+            "amount": 4
+        }
+    ],
+    "skill": 0.01
+}

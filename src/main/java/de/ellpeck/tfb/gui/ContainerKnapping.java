@@ -1,11 +1,11 @@
-package de.ellpeck.tfb.mechanics.knapping.gui;
+package de.ellpeck.tfb.gui;
 
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.inventory.Inventory;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
-import de.ellpeck.tfb.mechanics.knapping.KnappingType;
+import de.ellpeck.tfb.recipes.KnappingType;
 
 import java.util.Arrays;
 

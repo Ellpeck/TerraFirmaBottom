@@ -1,8 +1,9 @@
-package de.ellpeck.tfb.mechanics.knapping;
+package de.ellpeck.tfb.recipes;
 
 import de.ellpeck.rockbottom.api.GameContent;
 import de.ellpeck.rockbottom.api.item.Item;
 import de.ellpeck.rockbottom.api.util.reg.NameRegistry;
+import de.ellpeck.tfb.recipes.KnappingRecipe;
 import de.ellpeck.tfb.tiles.Tiles;
 
 public enum KnappingType {

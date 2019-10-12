@@ -8,7 +8,8 @@
             "stone_axe": "Stone Axe",
             "clay": "Clay",
             "clay_vessel": "Unfired Clay Vessel",
-            "vessel": "Clay Vessel"
+            "vessel": "Clay Vessel",
+            "firestarter": "Firestarter"
         }
     }
 }

@@ -1,4 +1,4 @@
-package de.ellpeck.tfb.mechanics.knapping;
+package de.ellpeck.tfb.recipes;
 
 import de.ellpeck.rockbottom.api.content.IContent;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
