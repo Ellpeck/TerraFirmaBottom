@@ -6,6 +6,7 @@ import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.items.Items;
+import de.ellpeck.tfb.mechanics.Misc;
 import de.ellpeck.tfb.mechanics.knapping.Knapping;
 
 import java.util.logging.Logger;
@@ -67,6 +68,7 @@ public class TFB implements IMod {
     public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         new Items();
         Knapping.init();
+        Misc.init();
     }
 
     @Override

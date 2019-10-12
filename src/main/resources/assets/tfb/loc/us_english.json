@@ -1,7 +1,9 @@
 {
     "tfb": {
         "item.": {
-            "stone_knife_blade": "Stone Knife Blade"
+            "stone_knife_blade": "Stone Knife Blade",
+            "stone_knife": "Stone Knife",
+            "straw": "Straw"
         }
     }
 }

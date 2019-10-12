@@ -4,7 +4,12 @@
     },
     "tex.": {
         "items.": {
-            "stone_knife_blade": "/tex/items/stone_knife_blade.png"
+            "stone_knife_blade": "/tex/items/stone_knife_blade.png",
+            "stone_knife": {
+                "path": "/tex/items/stone_knife.png",
+                "data": "/tex/items/tool.json"
+            },
+            "straw": "/tex/items/straw.png"
         },
         "knapping": "/tex/knapping.png"
     }
