@@ -16,6 +16,12 @@
                 "data": "/tex/items/tool.json"
             }
         },
+        "tiles.": {
+            "clay.": {
+                "*": "/tex/tiles/clay.png",
+                "item": "/tex/items/clay.png"
+            }
+        },
         "knapping": "/tex/knapping.png"
     }
 }

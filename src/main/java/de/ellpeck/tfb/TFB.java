@@ -2,12 +2,15 @@ package de.ellpeck.tfb;
 
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
+import de.ellpeck.rockbottom.api.Registries;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.mechanics.Misc;
 import de.ellpeck.tfb.mechanics.knapping.Knapping;
+import de.ellpeck.tfb.tiles.Tiles;
+import de.ellpeck.tfb.world.ClayGenerator;
 
 import java.util.logging.Logger;
 
@@ -67,8 +70,12 @@ public class TFB implements IMod {
     @Override
     public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         new Items();
+        new Tiles();
+
         Knapping.init();
         Misc.init();
+
+        Registries.WORLD_GENERATORS.register(createRes("clay"), ClayGenerator.class);
     }
 
     @Override
