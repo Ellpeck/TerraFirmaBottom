@@ -1,6 +1,9 @@
 package de.ellpeck.tfb;
 
 import de.ellpeck.rockbottom.api.Registries;
+import de.ellpeck.rockbottom.api.RockBottomAPI;
+import de.ellpeck.rockbottom.api.event.EventResult;
+import de.ellpeck.rockbottom.api.event.impl.RecipeLearnEvent;
 import de.ellpeck.rockbottom.api.util.reg.IRegistry;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
@@ -29,6 +32,12 @@ public final class ContentModifier {
             } catch (Exception ignored) {
             }
         }
+
+        RockBottomAPI.getEventHandler().registerListener(RecipeLearnEvent.class, (result, event) -> {
+            if ("rockbottom".equals(event.recipe.getName().getDomain()))
+                return EventResult.CANCELLED;
+            return result;
+        });
     }
 
     private static <U> void clearRegistry(IRegistry<ResourceName, U> registry) {
