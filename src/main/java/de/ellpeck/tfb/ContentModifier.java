@@ -32,12 +32,6 @@ public final class ContentModifier {
             } catch (Exception ignored) {
             }
         }
-
-        RockBottomAPI.getEventHandler().registerListener(RecipeLearnEvent.class, (result, event) -> {
-            if ("rockbottom".equals(event.recipe.getName().getDomain()))
-                return EventResult.CANCELLED;
-            return result;
-        });
     }
 
     private static <U> void clearRegistry(IRegistry<ResourceName, U> registry) {

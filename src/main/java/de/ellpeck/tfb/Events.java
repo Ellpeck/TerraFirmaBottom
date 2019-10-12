@@ -5,6 +5,7 @@ import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.event.EventResult;
 import de.ellpeck.rockbottom.api.event.impl.ItemInteractEvent;
+import de.ellpeck.rockbottom.api.event.impl.RecipeLearnEvent;
 import de.ellpeck.rockbottom.api.event.impl.TileDropsEvent;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.tfb.gui.ContainerKnapping;
@@ -17,7 +18,8 @@ import de.ellpeck.tfb.recipes.KnappingType;
 public final class Events {
 
     public static void init() {
-        RockBottomAPI.getEventHandler().registerListener(ItemInteractEvent.class, (result, event) -> {
+        var ev = RockBottomAPI.getEventHandler();
+        ev.registerListener(ItemInteractEvent.class, (result, event) -> {
             for (var type : KnappingType.values()) {
                 if (event.instance.getItem() != type.item)
                     continue;
@@ -31,8 +33,7 @@ public final class Events {
             }
             return result;
         });
-
-        RockBottomAPI.getEventHandler().registerListener(TileDropsEvent.class, (result, event) -> {
+        ev.registerListener(TileDropsEvent.class, (result, event) -> {
             if (event.tile != GameContent.TILE_GRASS_TUFT)
                 return result;
             if (!(event.destroyer instanceof AbstractEntityPlayer))
@@ -45,6 +46,11 @@ public final class Events {
             event.drops.clear();
             event.drops.add(new ItemInstance(Items.STRAW));
             return EventResult.MODIFIED;
+        });
+        ev.registerListener(RecipeLearnEvent.class, (result, event) -> {
+            if ("rockbottom".equals(event.recipe.getName().getDomain()))
+                return EventResult.CANCELLED;
+            return result;
         });
     }
 }
