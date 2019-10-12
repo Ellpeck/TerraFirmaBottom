@@ -32,6 +32,6 @@ public class TilePlacedItemsRenderer extends DefaultTileRenderer<TilePlacedItems
 
         var percentage = entity.getPitKilnFillPercentage();
         var tex = manager.getTexture(entity.isLit ? this.texture.addSuffix(".lit") : this.texture);
-        tex.draw(renderX, renderY + (1 - percentage) * scale, renderX + scale, renderY + scale, 0, (1 - percentage) * tex.getRenderHeight(), tex.getRenderWidth(), tex.getRenderHeight());
+        tex.draw(renderX, renderY + (1 - percentage) * scale, renderX + scale, renderY + scale, 0, (1 - percentage) * tex.getRenderHeight(), tex.getRenderWidth(), tex.getRenderHeight(), light);
     }
 }

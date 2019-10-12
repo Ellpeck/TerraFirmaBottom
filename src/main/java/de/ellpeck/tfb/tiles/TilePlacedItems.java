@@ -84,6 +84,12 @@ public class TilePlacedItems extends TileBasic {
     }
 
     @Override
+    public int getLight(IWorld world, int x, int y, TileLayer layer) {
+        var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
+        return entity.isLit ? 25 : 0;
+    }
+
+    @Override
     public void updateRandomlyInPlayerView(IWorld world, int x, int y, TileLayer layer, TileState state, IParticleManager manager) {
         var entity = world.getTileEntity(x, y, TileEntityPlacedItems.class);
         if (entity.isLit) {

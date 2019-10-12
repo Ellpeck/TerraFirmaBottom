@@ -109,6 +109,7 @@ public class TileEntityPlacedItems extends TileEntity {
                 item.takeDamage(instance, player, 1);
                 if (Util.RANDOM.nextInt(5) == 0) {
                     this.isLit = true;
+                    this.world.causeLightUpdate(this.x, this.y);
                     this.sendToClients();
                 }
             }
@@ -147,6 +148,7 @@ public class TileEntityPlacedItems extends TileEntity {
         if (this.burnTime >= Constants.TIME_PER_DAY / 4) {
             this.burnTime = 0;
             this.isLit = false;
+            this.world.causeLightUpdate(this.x, this.y);
 
             for (var i = 0; i < this.inventory.getSlotAmount(); i++) {
                 var item = this.inventory.get(i);
