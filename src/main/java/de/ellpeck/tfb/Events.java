@@ -2,14 +2,16 @@ package de.ellpeck.tfb;
 
 import de.ellpeck.rockbottom.api.GameContent;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
+import de.ellpeck.rockbottom.api.entity.AbstractEntityItem;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.event.EventResult;
-import de.ellpeck.rockbottom.api.event.impl.ItemInteractEvent;
-import de.ellpeck.rockbottom.api.event.impl.RecipeLearnEvent;
-import de.ellpeck.rockbottom.api.event.impl.TileDropsEvent;
+import de.ellpeck.rockbottom.api.event.impl.*;
+import de.ellpeck.rockbottom.api.inventory.IInventory;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.tfb.gui.ContainerKnapping;
 import de.ellpeck.tfb.gui.GuiKnapping;
+import de.ellpeck.tfb.items.IUpdatingItem;
 import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.items.ToolProperties;
 import de.ellpeck.tfb.packets.PacketOpenKnapping;
@@ -52,5 +54,34 @@ public final class Events {
                 return EventResult.CANCELLED;
             return result;
         });
+        ev.registerListener(TileEntityTickEvent.class, (result, event) -> {
+            var inv = event.tileEntity.getTileInventory();
+            if (inv == null)
+                return result;
+            updateInventory(inv, event.tileEntity.world);
+            return result;
+        });
+        ev.registerListener(EntityTickEvent.class, (result, event) -> {
+            if (event.entity instanceof AbstractEntityPlayer) {
+                var player = (AbstractEntityPlayer) event.entity;
+                updateInventory(player.getInv(), player.world);
+            } else if (event.entity instanceof AbstractEntityItem) {
+                var itemEntity = (AbstractEntityItem) event.entity;
+                var inst = itemEntity.getItem();
+                var item = inst.getItem();
+                if (item instanceof IUpdatingItem)
+                    ((IUpdatingItem) item).update(itemEntity.world, inst);
+            }
+            return result;
+        });
+    }
+
+    private static void updateInventory(IInventory inv, IWorld world) {
+        for (var instance : inv) {
+            var item = instance.getItem();
+            if (item instanceof IUpdatingItem) {
+                ((IUpdatingItem) item).update(world, instance);
+            }
+        }
     }
 }
