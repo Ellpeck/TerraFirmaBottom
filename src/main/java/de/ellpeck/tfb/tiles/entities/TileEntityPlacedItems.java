@@ -76,6 +76,7 @@ public class TileEntityPlacedItems extends TileEntity {
                     this.pitKilnInventory.set(0, instance.copy().setAmount(1));
                 } else {
                     straw.addAmount(1);
+                    this.sendToClients();
                 }
             }
             return true;
@@ -90,6 +91,7 @@ public class TileEntityPlacedItems extends TileEntity {
                     this.pitKilnInventory.set(1, instance.copy().setAmount(1));
                 } else {
                     wood.addAmount(1);
+                    this.sendToClients();
                 }
             }
             return true;
