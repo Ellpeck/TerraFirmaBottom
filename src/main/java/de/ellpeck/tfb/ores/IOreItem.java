@@ -5,4 +5,6 @@ import de.ellpeck.rockbottom.api.item.ItemInstance;
 public interface IOreItem {
 
     MetalType getType(ItemInstance instance);
+
+    int getAmount(ItemInstance instance);
 }

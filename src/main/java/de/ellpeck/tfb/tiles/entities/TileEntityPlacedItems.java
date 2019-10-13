@@ -1,6 +1,5 @@
 package de.ellpeck.tfb.tiles.entities;
 
-import de.ellpeck.rockbottom.api.Constants;
 import de.ellpeck.rockbottom.api.GameContent;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
@@ -147,16 +146,18 @@ public class TileEntityPlacedItems extends TileEntity {
             return;
 
         this.burnTime++;
-        if (this.burnTime >= Constants.TIME_PER_DAY / 4) {
+        if (this.burnTime >= 200/* Constants.TIME_PER_DAY / 4*/) {
             this.burnTime = 0;
             this.isLit = false;
             this.world.causeLightUpdate(this.x, this.y);
 
             for (var i = 0; i < this.inventory.getSlotAmount(); i++) {
-                var item = this.inventory.get(i);
-                var result = getResult(item);
+                var instance = this.inventory.get(i);
+                if (instance == null)
+                    continue;
+                var result = getResult(instance);
                 if (result != null)
-                    this.inventory.set(i, result.copy());
+                    this.inventory.set(i, result);
             }
 
             for (var i = 0; i < this.pitKilnInventory.getSlotAmount(); i++)
@@ -167,7 +168,7 @@ public class TileEntityPlacedItems extends TileEntity {
     private static ItemInstance getResult(ItemInstance instance) {
         for (var recipe : PitKilnRecipe.REGISTRY.values()) {
             if (recipe.matches(instance))
-                return recipe.output;
+                return recipe.getOutput(instance);
         }
         return null;
     }

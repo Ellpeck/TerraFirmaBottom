@@ -72,7 +72,7 @@ public class ItemVessel extends ItemPlaceable implements IUpdatingItem {
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player, ItemInstance instance) {
         if (super.onInteractWith(world, x, y, layer, mouseX, mouseY, player, instance))
             return true;
-        return player.openGuiContainer(new GuiVessel(player), new ContainerVessel(player, instance));
+        return player.openGuiContainer(new GuiVessel(player, instance), new ContainerVessel(player, instance));
     }
 
     @Override

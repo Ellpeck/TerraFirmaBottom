@@ -3,7 +3,6 @@ package de.ellpeck.tfb.gui.container;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.gui.container.ContainerSlot;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
-import de.ellpeck.rockbottom.api.inventory.Inventory;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
@@ -21,7 +20,10 @@ public class ContainerVessel extends ItemContainer {
         this.inventory = ItemVessel.loadInventory(instance);
 
         this.addProtectedPlayerInv(player, 0, 50);
-        this.addSlotGrid(this.inventory.items, 0, this.inventory.items.getSlotAmount(), 51, 0, 2);
+
+        if (this.inventory.metal == null) {
+            this.addSlotGrid(this.inventory.items, 0, this.inventory.items.getSlotAmount(), 51, 0, 2);
+        }
     }
 
 

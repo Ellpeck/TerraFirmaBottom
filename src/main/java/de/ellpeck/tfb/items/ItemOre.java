@@ -7,8 +7,8 @@ import de.ellpeck.rockbottom.api.render.item.DefaultItemRenderer;
 import de.ellpeck.rockbottom.api.render.item.IItemRenderer;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.ores.IOreItem;
-import de.ellpeck.tfb.ores.OreRichness;
 import de.ellpeck.tfb.ores.MetalType;
+import de.ellpeck.tfb.ores.OreRichness;
 
 public class ItemOre extends ItemTile implements IOreItem {
 
@@ -44,5 +44,10 @@ public class ItemOre extends ItemTile implements IOreItem {
     @Override
     public MetalType getType(ItemInstance instance) {
         return this.type;
+    }
+
+    @Override
+    public int getAmount(ItemInstance instance) {
+        return getItemRichness(instance).amount * instance.getAmount();
     }
 }

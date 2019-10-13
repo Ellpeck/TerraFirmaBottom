@@ -16,6 +16,11 @@
             "bismuth_ore": "Bismuth Ore",
             "copper_ore": "Copper Ore"
         },
+        "metal.": {
+            "copper": "Copper",
+            "bismuth": "Bismuth",
+            "zinc": "Zinc"
+        },
         "rich": "Rich",
         "regular": "Regular",
         "poor": "Poor",

@@ -15,7 +15,7 @@ public enum MetalType {
     public final ResourceName name;
 
     MetalType() {
-        this.name = TFB.createRes(this.name().toLowerCase(Locale.ROOT));
+        this.name = TFB.createRes(this.name().toLowerCase(Locale.ROOT)).addPrefix("metal.");
     }
 
     public static MetalType byName(ResourceName name) {

@@ -11,13 +11,17 @@ public class PitKilnRecipe {
     public static final NameRegistry<PitKilnRecipe> REGISTRY = new NameRegistry<>(TFB.createRes("pit_kiln"), true).register();
 
     public final ResourceName name;
-    public final IUseInfo input;
-    public final ItemInstance output;
+    private final IUseInfo input;
+    private final ItemInstance output;
 
     public PitKilnRecipe(ResourceName name, IUseInfo input, ItemInstance output) {
         this.name = name;
         this.input = input;
         this.output = output;
+    }
+
+    public ItemInstance getOutput(ItemInstance input) {
+        return this.output.copy();
     }
 
     public boolean matches(ItemInstance input) {
