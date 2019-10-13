@@ -8,10 +8,11 @@ import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.TFB;
 import de.ellpeck.tfb.items.ItemVessel;
+import de.ellpeck.tfb.items.VesselInventory;
 
 public class ContainerVessel extends ItemContainer {
 
-    private final Inventory inventory;
+    private final VesselInventory inventory;
     private final ItemInstance instance;
 
     public ContainerVessel(AbstractEntityPlayer player, ItemInstance instance) {
@@ -20,7 +21,7 @@ public class ContainerVessel extends ItemContainer {
         this.inventory = ItemVessel.loadInventory(instance);
 
         this.addProtectedPlayerInv(player, 0, 50);
-        this.addSlotGrid(this.inventory, 0, this.inventory.getSlotAmount(), 51, 0, 2);
+        this.addSlotGrid(this.inventory.items, 0, this.inventory.items.getSlotAmount(), 51, 0, 2);
     }
 
 
@@ -40,9 +41,9 @@ public class ContainerVessel extends ItemContainer {
     }
 
     private void addPlayerSlotGrid(AbstractEntityPlayer player, int start, int end, int xStart, int yStart, int width) {
-        int x = xStart;
-        int y = yStart;
-        for (int i = start; i < end; i++) {
+        var x = xStart;
+        var y = yStart;
+        for (var i = start; i < end; i++) {
             if (i == player.getSelectedSlot()) {
                 this.addSlot(new ImmovableSlot(player.getInv(), i, x, y));
             } else {
