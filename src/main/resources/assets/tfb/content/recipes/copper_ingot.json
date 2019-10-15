@@ -3,6 +3,9 @@
     "outputs": [
         {
             "name": "rockbottom/copper_ingot"
+        },
+        {
+            "name": "tfb/ingot_cast"
         }
     ],
     "inputs": [

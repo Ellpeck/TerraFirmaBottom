@@ -3,6 +3,9 @@
     "outputs": [
         {
             "name": "tfb/zinc_ingot"
+        },
+        {
+            "name": "tfb/ingot_cast"
         }
     ],
     "inputs": [
