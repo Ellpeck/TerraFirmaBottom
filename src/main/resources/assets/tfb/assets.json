@@ -29,7 +29,8 @@
             "ingot_cast": "/tex/items/ingot_cast.png",
             "ingot_cast_overlay": "/tex/items/ingot_cast_overlay.png",
             "zinc_ingot": "/tex/items/zinc_ingot.png",
-            "bismuth_ingot": "/tex/items/bismuth_ingot.png"
+            "bismuth_ingot": "/tex/items/bismuth_ingot.png",
+            "bismuth_bronze_ingot": "/tex/items/bismuth_bronze_ingot.png"
         },
         "tiles.": {
             "clay.": {

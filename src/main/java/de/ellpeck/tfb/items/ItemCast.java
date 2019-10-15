@@ -2,6 +2,7 @@ package de.ellpeck.tfb.items;
 
 import com.google.common.base.Strings;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
+import de.ellpeck.rockbottom.api.assets.font.FormattingCode;
 import de.ellpeck.rockbottom.api.item.ItemBasic;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.item.IItemRenderer;
@@ -67,6 +68,6 @@ public class ItemCast extends ItemBasic implements ICast {
             return;
         var amount = this.getMetalAmount(instance);
         var max = this.getMaxMetalAmount(instance);
-        desc.add(metal.getDisplayName() + " x" + amount + " / " + max);
+        desc.add(FormattingCode.GRAY + metal.getDisplayName() + " x" + amount + " / " + max);
     }
 }

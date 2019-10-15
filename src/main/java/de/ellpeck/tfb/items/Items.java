@@ -23,6 +23,7 @@ public final class Items {
     public static final Item INGOT_CAST = new ItemCast(TFB.createRes("ingot_cast")).register();
     public static final Item BISMUTH_INGOT = new ItemBasic(TFB.createRes("bismuth_ingot")).setMaxAmount(16).register();
     public static final Item ZINC_INGOT = new ItemBasic(TFB.createRes("zinc_ingot")).setMaxAmount(16).register();
+    public static final Item BISMUTH_BRONZE_INGOT = new ItemBasic(TFB.createRes("bismuth_bronze_ingot")).setMaxAmount(16).register();
 
     public static final Item STRAW = new ItemBasic(TFB.createRes("straw")).setMaxAmount(32).register();
 }

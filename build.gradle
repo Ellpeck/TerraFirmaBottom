@@ -16,5 +16,5 @@ runClient {
 }
 
 dependencies {
-    compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.4.7-761'
+    compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.4.7-763'
 }

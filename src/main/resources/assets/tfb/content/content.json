@@ -16,7 +16,8 @@
         "stone_shovel": "/recipes/stone_shovel.json",
         "bismuth_ingot": "/recipes/bismuth_ingot.json",
         "copper_ingot": "/recipes/copper_ingot.json",
-        "zinc_ingot": "/recipes/zinc_ingot.json"
+        "zinc_ingot": "/recipes/zinc_ingot.json",
+        "bismuth_bronze_ingot": "/recipes/bismuth_bronze_ingot.json"
     },
     "alloy.": {
         "bismuth_bronze": "/alloys/bismuth_bronze.json"

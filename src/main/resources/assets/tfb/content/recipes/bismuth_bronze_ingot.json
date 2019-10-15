@@ -1,0 +1,21 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/bismuth_bronze_ingot"
+        },
+        {
+            "name": "tfb/ingot_cast"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/ingot_cast",
+            "data": {
+                "tfb/metal": "tfb/bismuth_bronze",
+                "tfb/amount": 100
+            }
+        }
+    ],
+    "skill": 0.01
+}

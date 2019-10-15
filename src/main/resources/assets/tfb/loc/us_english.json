@@ -17,7 +17,8 @@
             "copper_ore": "Copper Ore",
             "ingot_cast": "Ingot Cast",
             "bismuth_ingot": "Bismuth Ingot",
-            "zinc_ingot": "Zinc Ingot"
+            "zinc_ingot": "Zinc Ingot",
+            "bismuth_bronze_ingot": "Bismuth Bronze Ingot"
         },
         "metal.": {
             "copper": "Copper",
