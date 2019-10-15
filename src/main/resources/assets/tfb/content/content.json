@@ -13,6 +13,9 @@
         "stone_knife": "/recipes/stone_knife.json",
         "stone_axe": "/recipes/stone_axe.json",
         "firestarter": "/recipes/firestarter.json",
-        "stone_shovel": "/recipes/stone_shovel.json"
+        "stone_shovel": "/recipes/stone_shovel.json",
+        "bismuth_ingot": "/recipes/bismuth_ingot.json",
+        "copper_ingot": "/recipes/copper_ingot.json",
+        "zinc_ingot": "/recipes/zinc_ingot.json"
     }
 }

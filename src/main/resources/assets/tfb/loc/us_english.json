@@ -14,7 +14,10 @@
             "stone_shovel": "Stone Shovel",
             "zinc_ore": "Zinc Ore",
             "bismuth_ore": "Bismuth Ore",
-            "copper_ore": "Copper Ore"
+            "copper_ore": "Copper Ore",
+            "ingot_cast": "Ingot Cast",
+            "bismuth_ingot": "Bismuth Ingot",
+            "zinc_ingot": "Zinc Ingot"
         },
         "metal.": {
             "copper": "Copper",

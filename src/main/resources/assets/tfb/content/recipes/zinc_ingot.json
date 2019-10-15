@@ -1,0 +1,18 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "tfb/zinc_ingot"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/ingot_cast",
+            "data": {
+                "tfb/metal": "tfb/zinc",
+                "tfb/amount": 100
+            }
+        }
+    ],
+    "skill": 0.01
+}

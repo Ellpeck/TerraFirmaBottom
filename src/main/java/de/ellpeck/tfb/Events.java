@@ -11,6 +11,7 @@ import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.tfb.gui.GuiKnapping;
 import de.ellpeck.tfb.gui.container.ContainerKnapping;
+import de.ellpeck.tfb.gui.container.ContainerVessel;
 import de.ellpeck.tfb.items.IUpdatingItem;
 import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.items.ToolProperties;
@@ -65,6 +66,10 @@ public final class Events {
             if (event.entity instanceof AbstractEntityPlayer) {
                 var player = (AbstractEntityPlayer) event.entity;
                 updateInventory(player.getInv(), player.world);
+
+                var container = player.getContainer();
+                if (container instanceof ContainerVessel)
+                    ((ContainerVessel) container).updateCasting();
             } else if (event.entity instanceof AbstractEntityItem) {
                 var itemEntity = (AbstractEntityItem) event.entity;
                 var inst = itemEntity.getItem();

@@ -25,7 +25,11 @@
             "firestarter": "/tex/items/firestarter.png",
             "zinc_ore": "/tex/items/zinc_ore.png",
             "bismuth_ore": "/tex/items/bismuth_ore.png",
-            "copper_ore": "/tex/items/copper_ore.png"
+            "copper_ore": "/tex/items/copper_ore.png",
+            "ingot_cast": "/tex/items/ingot_cast.png",
+            "ingot_cast_overlay": "/tex/items/ingot_cast_overlay.png",
+            "zinc_ingot": "/tex/items/zinc_ingot.png",
+            "bismuth_ingot": "/tex/items/bismuth_ingot.png"
         },
         "tiles.": {
             "clay.": {

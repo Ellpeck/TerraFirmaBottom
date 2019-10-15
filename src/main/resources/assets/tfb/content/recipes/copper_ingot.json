@@ -1,0 +1,18 @@
+{
+    "type": "manual",
+    "outputs": [
+        {
+            "name": "rockbottom/copper_ingot"
+        }
+    ],
+    "inputs": [
+        {
+            "name": "tfb/ingot_cast",
+            "data": {
+                "tfb/metal": "tfb/copper",
+                "tfb/amount": 100
+            }
+        }
+    ],
+    "skill": 0.01
+}

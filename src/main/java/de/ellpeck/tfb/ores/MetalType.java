@@ -8,14 +8,16 @@ import java.util.Locale;
 
 public enum MetalType {
 
-    BISMUTH,
-    COPPER,
-    ZINC;
+    BISMUTH(0xFF00a15e),
+    COPPER(0xFFb34a00),
+    ZINC(0xFFc9c9c9);
 
     public final ResourceName name;
+    public final int color;
 
-    MetalType() {
+    MetalType(int color) {
         this.name = TFB.createRes(this.name().toLowerCase(Locale.ROOT)).addPrefix("metal.");
+        this.color = color;
     }
 
     public static MetalType byName(ResourceName name) {
