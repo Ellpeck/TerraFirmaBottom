@@ -1,0 +1,8 @@
+{
+    "inputs": {
+        "tfb/bismuth": [10, 20],
+        "tfb/zinc": [20, 30],
+        "tfb/copper": [50, 65]
+    },
+    "output": "tfb/bismuth_bronze"
+}

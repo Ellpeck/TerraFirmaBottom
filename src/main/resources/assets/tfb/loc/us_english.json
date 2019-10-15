@@ -22,7 +22,8 @@
         "metal.": {
             "copper": "Copper",
             "bismuth": "Bismuth",
-            "zinc": "Zinc"
+            "zinc": "Zinc",
+            "bismuth_bronze": "Bismuth Bronze"
         },
         "rich": "Rich",
         "regular": "Regular",

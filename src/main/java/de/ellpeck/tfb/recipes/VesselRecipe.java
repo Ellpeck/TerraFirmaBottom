@@ -37,16 +37,30 @@ public class VesselRecipe extends PitKilnRecipe {
             counter.add(ore.getAmount(instance));
         }
 
+        var success = false;
         if (amounts.size() == 1) {
             var entry = amounts.entrySet().iterator().next();
             inventory.metal = entry.getKey();
             inventory.metalAmount = entry.getValue().get();
+            success = true;
+        } else {
+            var total = amounts.values().stream().mapToInt(Counter::get).sum();
+            for (var recipe : AlloyRecipe.REGISTRY.values()) {
+                if (!recipe.matches(amounts, total))
+                    continue;
+                inventory.metal = recipe.output;
+                inventory.metalAmount = total;
+                success = true;
+                break;
+            }
         }
 
-        for (var i = 0; i < inventory.items.getSlotAmount(); i++)
-            inventory.items.set(i, null);
+        if (success) {
+            for (var i = 0; i < inventory.items.getSlotAmount(); i++)
+                inventory.items.set(i, null);
+            ItemVessel.saveInventory(inventory, input);
+        }
 
-        ItemVessel.saveInventory(inventory, input);
         return input;
     }
 }

@@ -9,9 +9,9 @@ import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.tfb.items.Items;
 import de.ellpeck.tfb.packets.PacketKnap;
 import de.ellpeck.tfb.packets.PacketOpenKnapping;
+import de.ellpeck.tfb.recipes.AlloyLoader;
 import de.ellpeck.tfb.recipes.KnappingLoader;
 import de.ellpeck.tfb.recipes.PitKilnLoader;
-import de.ellpeck.tfb.recipes.PitKilnRecipe;
 import de.ellpeck.tfb.recipes.VesselRecipe;
 import de.ellpeck.tfb.tiles.Tiles;
 import de.ellpeck.tfb.world.ClayGenerator;
@@ -81,6 +81,7 @@ public class TFB implements IMod {
 
         new KnappingLoader().register();
         new PitKilnLoader().register();
+        new AlloyLoader().register();
         new VesselRecipe();
 
         Registries.PACKET_REGISTRY.registerNextFree(PacketOpenKnapping.class);

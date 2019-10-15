@@ -17,5 +17,8 @@
         "bismuth_ingot": "/recipes/bismuth_ingot.json",
         "copper_ingot": "/recipes/copper_ingot.json",
         "zinc_ingot": "/recipes/zinc_ingot.json"
+    },
+    "alloy.": {
+        "bismuth_bronze": "/alloys/bismuth_bronze.json"
     }
 }
